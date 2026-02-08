@@ -1,0 +1,145 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  min-height: 56px;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.header__menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  color: #374151;
+  cursor: pointer;
+}
+
+.header__menu-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.header__orders {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.header__orders svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.header__trial {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  background-color: #fef2f2;
+  color: #dc2626;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+}
+
+.header__trial svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header__user-wrap {
+  position: relative;
+}
+
+.header__user-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 0.875rem;
+  color: #374151;
+  cursor: pointer;
+}
+
+.header__user-btn:hover {
+  background-color: #f9fafb;
+}
+
+.header__user-btn svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.header__dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  min-width: 140px;
+  padding: 0.5rem 0;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+}
+
+.header__dropdown button {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: none;
+  font-size: 0.875rem;
+  text-align: left;
+  cursor: pointer;
+  color: #374151;
+}
+
+.header__dropdown button:hover {
+  background-color: #f3f4f6;
+}
+
+@media screen and (max-width: 768px) {
+  .header__menu-btn {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .header__left {
+    flex: 1 1 100%;
+  }
+
+  .header__right {
+    flex: 1 1 100%;
+    justify-content: flex-end;
+  }
+}

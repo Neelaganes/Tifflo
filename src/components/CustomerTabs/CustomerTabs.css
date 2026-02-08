@@ -1,0 +1,39 @@
+.customer-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 1rem;
+}
+
+.customer-tabs__tab {
+  padding: 0.5rem 1rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.customer-tabs__tab:hover {
+  color: #374151;
+}
+
+.customer-tabs__tab--active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+@media screen and (max-width: 480px) {
+  .customer-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .customer-tabs__tab {
+    flex-shrink: 0;
+  }
+}
