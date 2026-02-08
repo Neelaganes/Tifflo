@@ -12,22 +12,25 @@ import {
 import './CustomerTable.css';
 
 function formatWallet(value) {
-  return '₹ ' + Number(value).toFixed(2);
+  const num = Number(value);
+  if (Number.isNaN(num)) return '₹ 0.00';
+  return '₹ ' + num.toFixed(2);
 }
 
 
 
-export function CustomerTable({ customers, searchFilter }) {
+export function CustomerTable({ customers = [], searchFilter }) {
+  const list = Array.isArray(customers) ? customers : [];
   const filtered = searchFilter
-    ? customers.filter(function (c) {
-        var q = searchFilter.toLowerCase();
+    ? list.filter(function (c) {
+        const q = searchFilter.toLowerCase();
         return (
-          c.name.toLowerCase().indexOf(q) !== -1 ||
+          (c.name && c.name.toLowerCase().indexOf(q) !== -1) ||
           (c.email && c.email.toLowerCase().indexOf(q) !== -1) ||
           (c.phone && c.phone.indexOf(searchFilter) !== -1)
         );
       })
-    : customers;
+    : list;
 
   if (filtered.length === 0) {
     return (
@@ -124,12 +127,12 @@ export function CustomerTable({ customers, searchFilter }) {
               </div>
               <div className="customer-card__row">
                 <span className="customer-card__label">Wallet balance</span>
-                <span className="customer-card__value">{formatWallet(row.walletBalance)}</span>
+                <span className="customer-card__value">{formatWallet(row.walletBalance ?? row.wallet_balance)}</span>
               </div>
               <div className="customer-card__row">
                 <span className="customer-card__label">Pending orders</span>
                 <button type="button" className="customer-table__orders-pill">
-                  Orders {row.pendingOrders}
+                  Orders {row.pendingOrders ?? row.pending_orders}
                 </button>
               </div>
               <div className="customer-card__row customer-card__row--actions">
